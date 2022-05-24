@@ -17,4 +17,7 @@ public class Livro {
         return autor;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
 }

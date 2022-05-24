@@ -16,15 +16,15 @@ public class AlunosRepository {
             alunosCadastrados = new ArrayList<>();
         }
         alunosCadastrados.add(aluno);
-        System.out.println(aluno.getNome() + " cadastrado com sucesso");
-        System.out.println("-----------------------------------------");
+//        System.out.println(aluno.getNome() + " cadastrado com sucesso");
+//        System.out.println("-----------------------------------------");
     }
-    public static boolean existeAluno(String matricula){
+    public static Aluno retornarAluno(String matricula){
         for (Aluno alunosCadastrado : alunosCadastrados) {
             if(alunosCadastrado.getMatricula().equals(matricula)){
-                return true;
+                return alunosCadastrado;
             }
         }
-        return false;
+        return null;
     }
 }

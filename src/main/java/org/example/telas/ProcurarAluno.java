@@ -7,9 +7,10 @@ import java.util.Scanner;
 
 public class ProcurarAluno {
 
-    public static String executar(Scanner scanner){
+    public static Aluno executar(Scanner scanner){
         System.out.println("Insira o número da matricula");
         String matricula = scanner.next();
-        return matricula;
+        return AlunosRepository.retornarAluno(matricula);
     }
+
 }

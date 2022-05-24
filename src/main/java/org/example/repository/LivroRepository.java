@@ -16,12 +16,21 @@ public class LivroRepository {
             livrosCadastrados = new ArrayList<>();
         }
         livrosCadastrados.add(livro);
-        System.out.println(livro.getTitulo() + " cadastrado com sucesso");
+        //System.out.println(livro.getTitulo() + " cadastrado com sucesso");
     }
 
-    public static void getLivrosCadastrados() {
+    public static Livro getLivros(String dado) {
         for (Livro livrosCadastrado : livrosCadastrados) {
-            System.out.println(livrosCadastrado.getTitulo());
+            if(livrosCadastrado.getTitulo().equals(dado)){
+                return livrosCadastrado;
+            }
+            if (livrosCadastrado.getAutor().equals(dado)){
+                return livrosCadastrado;
+            }
+            if (livrosCadastrado.getIsbn().equals(dado)){
+                return livrosCadastrado;
+            }
         }
+        return null;
     }
 }

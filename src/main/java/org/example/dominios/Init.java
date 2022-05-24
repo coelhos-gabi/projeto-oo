@@ -5,7 +5,7 @@ import org.example.repository.LivroRepository;
 
 public class Init {
     public static void executar(){
-        Livro livro1 = new Livro("Livro1", "autor1", "001",1);
+        Livro livro1 = new Livro("Livro1", "autor1", "001",4);
         Livro livro2 = new Livro("Livro2", "autor2", "002",1);
         Livro livro3 = new Livro("Livro3", "autor3", "003",1);
         Livro livro4 = new Livro("Livro4", "autor4", "004",1);
@@ -23,6 +23,15 @@ public class Init {
         LivroRepository.gravarLivroRepositorio(livro5);
         LivroRepository.gravarLivroRepositorio(livro6);
         LivroRepository.gravarLivroRepositorio(livro7);
+        LivroRepository.gravarLivroRepositorio(livro8);
+        LivroRepository.gravarLivroRepositorio(livro9);
+        LivroRepository.gravarLivroRepositorio(livro10);
+        LivroRepository.gravarLivroRepositorio(livro11);
+        System.out.println(livro1.getTotalCopias());
+
+//        for (Livro livrosCadastrado : LivroRepository.livrosCadastrados) {
+//            System.out.println(livrosCadastrado.getTitulo());
+//        }
 
         Aluno aluno1 = new Aluno("aluno1","12345", TipoAluno.GR);
         Aluno aluno2 = new Aluno("aluno2","23456", TipoAluno.MS);

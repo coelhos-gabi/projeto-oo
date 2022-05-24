@@ -1,7 +1,9 @@
 package org.example.dominios;
 
+import org.example.repository.LivroRepository;
+
 public class Livro {
-    private String titulo;
+    protected String titulo;
     private String autor;
     private String isbn;
     private int totalCopias = 0;
@@ -28,6 +30,13 @@ public class Livro {
     }
 
     public void setTotalCopias(int copias) {
-        this.totalCopias = copias;
+        if(LivroRepository.getLivros(this.isbn) != null) {
+            if (LivroRepository.getLivros(this.isbn).getIsbn().equals(this.getIsbn())) {
+                this.totalCopias += copias;
+            }
+        }
+        else {
+            this.totalCopias = copias;
+        }
     }
 }

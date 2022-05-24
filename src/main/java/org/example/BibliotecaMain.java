@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.dominios.Aluno;
+import org.example.dominios.Emprestimo;
 import org.example.dominios.Init;
 import org.example.dominios.Livro;
 import org.example.repository.AlunosRepository;
@@ -39,7 +40,7 @@ public class BibliotecaMain {
                     AlunosRepository.gravarAlunoRepositorio(aluno);
                     break;
                 case 3:
-                    //Emprestimo.emprestar(livro, matricula);
+                    Emprestimo.executar(sc);
                     break;
                 case 4:
                     //devolucao

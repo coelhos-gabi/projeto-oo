@@ -1,7 +1,7 @@
 package org.example.dominios;
 
 public enum TipoAluno {
-    GR("Graduação", 4, 1),
+    GR("Graduação", 2, 1),
     MS("Mestrado", 6, 2),
     DT("Doutorado", 9, 3);
 

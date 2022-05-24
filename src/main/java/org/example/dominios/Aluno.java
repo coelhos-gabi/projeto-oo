@@ -1,6 +1,7 @@
 package org.example.dominios;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -29,6 +30,21 @@ public class Aluno {
         return tipoAluno;
     }
 
+    public String getLivrosEmprestados() {
+        String nomeLivros = "";
+        for (Livro livrosEmprestado : livrosEmprestados) {
+            nomeLivros += livrosEmprestado.getTitulo() + " ";
+        }
+        return nomeLivros;
+    }
+    public boolean alunoJaPossuiLivro(String isbn){
+        for (Livro livrosEmprestado : livrosEmprestados){
+            if (livrosEmprestado.getIsbn().equals(isbn)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public int getQuantidadeLivrosEmprestados() {
         if(Objects.isNull(livrosEmprestados)){
             return 0;
@@ -50,4 +66,11 @@ public class Aluno {
         this.dataEmprestimo.add(dataEmprestimo);
     }
 
+    public String getDataEmprestimo() {
+        String datas = "";
+        for (LocalDate localDate : dataEmprestimo) {
+            datas += localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " ";
+        }
+        return datas;
+    }
 }

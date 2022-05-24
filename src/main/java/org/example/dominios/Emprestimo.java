@@ -9,6 +9,13 @@ public class Emprestimo {
 
     }
     public static void emprestar(Livro livro, String matricula){
+        // disponibilidade livro
+
+        // limite aluno
+        // verificar multa existente
+
+
+
         Aluno aluno = AlunosRepository.retornarAluno(matricula);
         if (aluno == null){
             System.out.println("Aluno não cadastrado");

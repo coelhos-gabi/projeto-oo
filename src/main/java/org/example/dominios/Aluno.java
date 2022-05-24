@@ -1,5 +1,6 @@
 package org.example.dominios;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -8,6 +9,7 @@ public class Aluno {
     private final String matricula;
     private ArrayList<Livro> livrosEmprestados;
     private final TipoAluno tipoAluno;
+    private ArrayList<LocalDate> dataEmprestimo = new ArrayList<LocalDate>();
 
     public Aluno(String nome, String matricula, TipoAluno tipoAluno) {
         this.nome = nome;
@@ -43,4 +45,9 @@ public class Aluno {
     public void removerLivro(Livro livro){
         this.livrosEmprestados.remove(livro);
     }
+
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo.add(dataEmprestimo);
+    }
+
 }

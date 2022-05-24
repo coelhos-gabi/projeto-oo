@@ -5,7 +5,7 @@ import org.example.dominios.TipoAluno;
 
 import java.util.Scanner;
 
-public class CadastrarAluno {
+public class InputDadosAluno {
     public static Aluno executar(Scanner scanner){
 
         System.out.println("Insira o nome do aluno:");

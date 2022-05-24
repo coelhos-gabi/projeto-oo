@@ -9,7 +9,5 @@ public class TelaEmprestimo {
         String matricula = scanner.next();
         System.out.println("Insira o isbn do livro:");
         String isbn = scanner.next();
-
-
     }
 }

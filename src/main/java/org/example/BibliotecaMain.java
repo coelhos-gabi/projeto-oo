@@ -2,10 +2,11 @@ package org.example;
 
 import org.example.dominios.Aluno;
 import org.example.dominios.Init;
+import org.example.dominios.Livro;
 import org.example.repository.AlunosRepository;
 import org.example.repository.LivroRepository;
-import org.example.telas.CadastrarAluno;
-import org.example.telas.CadastrarLivro;
+import org.example.telas.InputDadosAluno;
+import org.example.telas.InputDadosLivro;
 import org.example.telas.ProcurarAluno;
 import org.example.telas.ProcurarLivro;
 import java.util.Scanner;
@@ -30,10 +31,12 @@ public class BibliotecaMain {
 
             switch (option) {
                 case 1:
-                    LivroRepository.cadastrarLivro(CadastrarLivro.executar(sc));
+                    Livro livro = InputDadosLivro.executar(sc);
+                    LivroRepository.gravarLivroRepositorio(livro);
                     break;
                 case 2:
-                    AlunosRepository.cadastrarAluno(CadastrarAluno.executar(sc));
+                    Aluno aluno = InputDadosAluno.executar(sc);
+                    AlunosRepository.gravarAlunoRepositorio(aluno);
                     break;
                 case 3:
                     //Emprestimo.emprestar(livro, matricula);
@@ -45,7 +48,7 @@ public class BibliotecaMain {
                     ProcurarLivro.executar();
                     break;
                 case 6:
-                    Aluno aluno = ProcurarAluno.executar(sc);
+                    aluno = ProcurarAluno.executar(sc);
                     System.out.println(aluno.getNome());
                     break;
             }

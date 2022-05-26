@@ -27,7 +27,7 @@ public class Init {
         LivroRepository.gravarLivroRepositorio(livro9);
         LivroRepository.gravarLivroRepositorio(livro10);
         LivroRepository.gravarLivroRepositorio(livro11);
-        System.out.println(livro1.getTotalCopias());
+
 
 //        for (Livro livrosCadastrado : LivroRepository.livrosCadastrados) {
 //            System.out.println(livrosCadastrado.getTitulo());

@@ -3,14 +3,13 @@ package org.example.dominios;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Aluno {
     private final String nome;
     private final String matricula;
-    private ArrayList<Livro> livrosEmprestados;
+    private ArrayList<Livro> livrosEmprestados = new ArrayList<>();
     private final TipoAluno tipoAluno;
-    private ArrayList<LocalDate> dataEmprestimo = new ArrayList<LocalDate>();
+    private ArrayList<LocalDate> dataEmprestimo = new ArrayList<>();
 
     public Aluno(String nome, String matricula, TipoAluno tipoAluno) {
         this.nome = nome;
@@ -30,47 +29,46 @@ public class Aluno {
         return tipoAluno;
     }
 
-    public String getLivrosEmprestados() {
-        String nomeLivros = "";
+    public String getTituloDosLivrosEmprestados() {
+        StringBuilder nomeLivros = new StringBuilder();
         for (Livro livrosEmprestado : livrosEmprestados) {
-            nomeLivros += livrosEmprestado.getTitulo() + " ";
+            nomeLivros.append(livrosEmprestado.getTitulo()).append("\n") ;
         }
-        return nomeLivros;
+        return "\n" + nomeLivros;
     }
-    public boolean alunoJaPossuiLivro(String isbn){
+    public int alunoJaPossuiLivro(String isbn){
         for (Livro livrosEmprestado : livrosEmprestados){
             if (livrosEmprestado.getIsbn().equals(isbn)) {
-                return true;
+                return livrosEmprestados.indexOf(livrosEmprestado);
             }
         }
-        return false;
+        return -1;
     }
+
     public int getQuantidadeLivrosEmprestados() {
-        if(Objects.isNull(livrosEmprestados)){
-            return 0;
-        }
+//        if(Objects.isNull(livrosEmprestados)){
+//            return 0;
+//        }
         return this.livrosEmprestados.size();
     }
     public void adicionarLivro(Livro livro){
-        if(Objects.isNull(livrosEmprestados)) {
-            livrosEmprestados = new ArrayList<>();
-        }
         this.livrosEmprestados.add(livro);
+        this.dataEmprestimo.add(LocalDate.now());
     }
 
     public void removerLivro(Livro livro){
         this.livrosEmprestados.remove(livro);
     }
-
-    public void setDataEmprestimo(LocalDate dataEmprestimo) {
-        this.dataEmprestimo.add(dataEmprestimo);
+//    public String getDataEmprestimo() {
+//        StringBuilder datas = new StringBuilder();
+//        for (LocalDate localDate : dataEmprestimo) {
+//            datas.append(localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))).append("\n");
+//        }
+//        return "\n" + datas;
+//    }
+    public LocalDate getDataEmprestimo(int indice){
+        return dataEmprestimo.get(indice);
     }
 
-    public String getDataEmprestimo() {
-        String datas = "";
-        for (LocalDate localDate : dataEmprestimo) {
-            datas += localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " ";
-        }
-        return datas;
-    }
+
 }

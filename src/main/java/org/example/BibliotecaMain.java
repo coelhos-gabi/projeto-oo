@@ -50,7 +50,7 @@ public class BibliotecaMain {
                     break;
                 case 6:
                     aluno = ProcurarAluno.executar(sc);
-                    System.out.println(aluno.getNome());
+                    System.out.println(aluno.toString());
                     break;
             }
         }while(option != 0);

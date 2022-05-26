@@ -2,6 +2,8 @@ package org.example.dominios;
 
 import org.example.repository.LivroRepository;
 
+import java.util.Objects;
+
 public class Livro {
     protected String titulo;
     private String autor;
@@ -39,4 +41,5 @@ public class Livro {
             this.totalCopias = copias;
         }
     }
+
 }

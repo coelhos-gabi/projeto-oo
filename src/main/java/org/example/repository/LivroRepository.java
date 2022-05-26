@@ -24,10 +24,10 @@ public class LivroRepository{
             livrosCadastrados.add(livro);
             numero++;
         }
-        System.out.println(livro.getTitulo() + " cadastrado com sucesso");
-        for (Livro livrosCadastrado : livrosCadastrados) {
-            System.out.println(livrosCadastrado.getTitulo());
-        }
+//        System.out.println(livro.getTitulo() + " cadastrado com sucesso");
+//        for (Livro livrosCadastrado : livrosCadastrados) {
+//            System.out.println(livrosCadastrado.getTitulo());
+//        }
     }
 
     public static void retirarDaEstante(Livro livro){
@@ -50,7 +50,6 @@ public class LivroRepository{
     }
     public static int getCopiasDisponiveis(Livro livro){
         int contaCopias = 0;
-
         for (Livro livrosCadastrado : livrosCadastrados) {
             if (livrosCadastrado.getIsbn().equals(livro.getIsbn())) {
                 contaCopias += 1;

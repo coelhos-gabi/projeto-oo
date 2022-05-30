@@ -35,15 +35,15 @@ public class LivroRepository{
     }
 
     public static Livro getLivros(String dado) {
-        for (Livro livrosCadastrado : livrosCadastrados) {
-            if(livrosCadastrado.getTitulo().equals(dado)){
-                return livrosCadastrado;
+        for (Livro livro : livrosCadastrados) {
+            if(livro.getTitulo().equals(dado)){
+                return livro;
             }
-            if (livrosCadastrado.getAutor().equals(dado)){
-                return livrosCadastrado;
+            if (livro.getAutor().equals(dado)){
+                return livro;
             }
-            if (livrosCadastrado.getIsbn().equals(dado)){
-                return livrosCadastrado;
+            if (livro.getIsbn().equals(dado)){
+                return livro;
             }
         }
         return null;

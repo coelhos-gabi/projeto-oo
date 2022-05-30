@@ -1,20 +1,23 @@
 package org.example.telas;
 
+import org.example.dominios.Aluno;
 import org.example.dominios.Devolucao;
-
-import java.time.LocalDate;
+import org.example.dominios.Livro;
+import org.example.repository.AlunosRepository;
+import org.example.repository.LivroRepository;
 import java.util.Scanner;
 
 public class TelaDevolucao {
 
-    public void executar(Scanner scanner){
+    public static void executar(Scanner scanner){
 
         System.out.println("Insira a matricula do aluno:");
         String matricula = scanner.next();
+        Aluno aluno = AlunosRepository.retornarAluno(matricula);
         System.out.println("Insira o isbn do livro");
         String isbn = scanner.next();
-        LocalDate dataDevolucao = LocalDate.now();
+        Livro livro = LivroRepository.getLivros(isbn);
 
-        Devolucao.verificarMulta(matricula,isbn, dataDevolucao);
+        Devolucao.executar(livro,aluno);
     }
 }

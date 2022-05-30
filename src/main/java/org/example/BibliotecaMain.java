@@ -1,15 +1,12 @@
 package org.example;
 
 import org.example.dominios.Aluno;
-import org.example.dominios.Emprestimo;
 import org.example.dominios.Init;
 import org.example.dominios.Livro;
 import org.example.repository.AlunosRepository;
 import org.example.repository.LivroRepository;
-import org.example.telas.InputDadosAluno;
-import org.example.telas.InputDadosLivro;
-import org.example.telas.ProcurarAluno;
-import org.example.telas.ProcurarLivro;
+import org.example.telas.*;
+
 import java.util.Scanner;
 
 public class BibliotecaMain {
@@ -40,10 +37,10 @@ public class BibliotecaMain {
                     AlunosRepository.gravarAlunoRepositorio(aluno);
                     break;
                 case 3:
-                    Emprestimo.executar(sc);
+                    TelaEmprestimo.executar(sc);
                     break;
                 case 4:
-                    //devolucao
+                    TelaDevolucao.executar(sc);
                     break;
                 case 5:
                     ProcurarLivro.executar();

@@ -21,8 +21,8 @@ public class BibliotecaMain {
             System.out.println("2 - Cadastar aluno");
             System.out.println("3 - Realizar empréstimo");
             System.out.println("4 - Realizar devolução");
-            System.out.println("5 - Procurar livro");
-            System.out.println("6 - Procurar aluno");
+            //System.out.println("5 - Procurar livro");
+            System.out.println("5 - Procurar aluno");
             System.out.println("0 - Sair");
 
             option = sc.nextInt();
@@ -42,10 +42,10 @@ public class BibliotecaMain {
                 case 4:
                     TelaDevolucao.executar(sc);
                     break;
+//                case 5:
+//                    ProcurarLivro.executar();
+//                    break;
                 case 5:
-                    ProcurarLivro.executar();
-                    break;
-                case 6:
                     aluno = ProcurarAluno.executar(sc);
                     System.out.println(aluno.toString());
                     break;

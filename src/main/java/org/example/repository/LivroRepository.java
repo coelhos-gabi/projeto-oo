@@ -16,33 +16,41 @@ public class LivroRepository{
     }
 
     public static void gravarLivroRepositorio(Livro livro) {
-//        if(Objects.isNull(livrosCadastrados)) {
-//            livrosCadastrados = new ArrayList<>();
-//        }
         int numero = 0;
-        while (numero != livro.getTotalCopias()) {
+        while (numero < livro.getTotalCopias()) {
             livrosCadastrados.add(livro);
             numero++;
         }
-//        System.out.println(livro.getTitulo() + " cadastrado com sucesso");
-//        for (Livro livrosCadastrado : livrosCadastrados) {
-//            System.out.println(livrosCadastrado.getTitulo());
-//        }
+        System.out.println(livro.getTitulo() + " cadastrado com sucesso");
     }
 
     public static void retirarDaEstante(Livro livro){
         livrosCadastrados.remove(livro);
     }
 
-    public static Livro getLivros(String dado) {
+    public static StringBuilder getTitulos(String tituloLivro) {
+        StringBuilder titulo = new StringBuilder();
+
         for (Livro livro : livrosCadastrados) {
-            if(livro.getTitulo().equals(dado)){
-                return livro;
+            if(livro.getTitulo().contains(tituloLivro) || livro.getTitulo().equalsIgnoreCase(tituloLivro)){
+                titulo.append(livro.getTitulo());
             }
-            if (livro.getAutor().equals(dado)){
-                return livro;
+        }
+        return titulo;
+    }
+    public static StringBuilder getAutores(String nomeAutor){
+        StringBuilder autor = new StringBuilder();
+        for (Livro livro : livrosCadastrados) {
+            if (livro.getAutor().contains(nomeAutor) || livro.getAutor().equalsIgnoreCase(nomeAutor)){
+                autor.append(livro.getAutor()).append("\n");
             }
-            if (livro.getIsbn().equals(dado)){
+        }
+        return autor;
+    }
+
+    public static Livro getLivroIsbn(String isbn) {
+        for (Livro livro : livrosCadastrados) {
+            if (livro.getIsbn().equals(isbn)) {
                 return livro;
             }
         }

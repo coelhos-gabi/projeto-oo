@@ -22,24 +22,23 @@ public class ProcurarLivro {
         if (entrada.equals("1")) {
             System.out.println("Insira o titulo do livro");
             dado = scanner.next();
-            livro = LivroRepository.getLivros(dado);
+            System.out.println(LivroRepository.getTitulos(dado));
         }
 
         if (entrada.equals("2")) {
             System.out.println("Insira o autor");
             dado = scanner.next();
-            livro = LivroRepository.getLivros(dado);
+            System.out.println(LivroRepository.getAutores(dado));
         }
 
         if (entrada.equals("3")) {
             System.out.println("Insira o ISBN do livro");
             dado = scanner.next();
-            livro = LivroRepository.getLivros(dado);
+            livro = LivroRepository.getLivroIsbn(dado);
         }
         System.out.println("------ RESULTADO DA BUSCA ------");
         System.out.println("Título: " + livro.getTitulo());
         System.out.println("Autor: " + livro.getAutor());
         System.out.println("ISBN: " + livro.getIsbn());
-
     }
 }

@@ -16,7 +16,7 @@ public class TelaEmprestimo {
         System.out.println("Insira a matricula:");
         String matricula = scanner.next();
         try{
-            Livro livro = LivroRepository.getLivros(isbn);
+            Livro livro = LivroRepository.getLivroIsbn(isbn);
             Aluno aluno = AlunosRepository.retornarAluno(matricula);
             Emprestimo.emprestar(livro, aluno);
         }catch(Exception e){

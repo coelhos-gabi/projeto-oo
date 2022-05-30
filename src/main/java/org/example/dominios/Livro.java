@@ -32,8 +32,8 @@ public class Livro {
     }
 
     public void setTotalCopias(int copias) {
-        if(LivroRepository.getLivros(this.isbn) != null) {
-            if (LivroRepository.getLivros(this.isbn).getIsbn().equals(this.getIsbn())) {
+        if(LivroRepository.getLivroIsbn(this.isbn) != null) {
+            if (LivroRepository.getLivroIsbn(this.isbn).getIsbn().equals(this.getIsbn())) {
                 this.totalCopias += copias;
             }
         }

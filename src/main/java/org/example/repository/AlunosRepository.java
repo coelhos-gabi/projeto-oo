@@ -4,17 +4,19 @@ import org.example.dominios.Aluno;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Objects;
 
 public class AlunosRepository {
 
-    private static HashSet<Aluno> alunosCadastrados;
+    private static ArrayList<Aluno> alunosCadastrados = new ArrayList<>();
 
     private AlunosRepository() {
     }
     public static void gravarAlunoRepositorio(Aluno aluno) {
-        if(Objects.isNull(alunosCadastrados)) {
-            alunosCadastrados = new HashSet<Aluno>();
+        for (Aluno alunoGravado : alunosCadastrados) {
+            if(alunoGravado.getMatricula().equals(aluno.getMatricula())){
+                System.out.println("Aluno já cadastrado");
+                return;
+            }
         }
         alunosCadastrados.add(aluno);
 //        System.out.println(aluno.getNome() + " cadastrado com sucesso");

@@ -67,8 +67,7 @@ public class Aluno {
         return "Nome:'" + nome + '\'' +
                 "\n Matricula:'" + matricula + '\'' +
                 "\n tipoAluno:" + tipoAluno.getDESCRICAO() +
-                "\n Livros emprestados: \n" + getTituloDosLivrosEmprestados() +
-                '}';
+                "\n Livros emprestados: \n" + getTituloDosLivrosEmprestados();
     }
 
     public boolean getPossuiMulta() {

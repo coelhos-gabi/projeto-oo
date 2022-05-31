@@ -16,8 +16,8 @@ public class TelaDevolucao {
         Aluno aluno = AlunosRepository.retornarAluno(matricula);
         System.out.println("Insira o isbn do livro");
         String isbn = scanner.next();
-        Livro livro = LivroRepository.getLivroIsbn(isbn);
+        Livro livro = LivroRepository.procurarLivroISBN(isbn);
 
-        Devolucao.executar(livro,aluno);
+        Devolucao.executar(livro, aluno);
     }
 }

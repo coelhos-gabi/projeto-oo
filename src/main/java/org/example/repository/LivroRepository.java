@@ -47,15 +47,23 @@ public class LivroRepository{
         }
         return autor;
     }
-
-    public static Livro getLivroIsbn(String isbn) {
-        for (Livro livro : livrosCadastrados) {
-            if (livro.getIsbn().equals(isbn)) {
-                return livro;
+    public static Livro procurarLivroISBN(String isbnBusca) {
+        for (Livro livroBuscado : livrosCadastrados) {
+            String isbn = livroBuscado.getIsbn();
+            if(isbn.equals(isbnBusca)){
+                return livroBuscado;
             }
         }
         return null;
     }
+//    public static Livro getLivroIsbn(String isbn) {
+//        for (Livro livro : livrosCadastrados) {
+//            if (livro.getIsbn().equals(isbn)) {
+//                return livro;
+//            }
+//        }
+//        return null;
+//    }
     public static int getCopiasDisponiveis(Livro livro){
         int contaCopias = 0;
         for (Livro livrosCadastrado : livrosCadastrados) {

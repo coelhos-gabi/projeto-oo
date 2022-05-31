@@ -21,7 +21,7 @@ public class LivroRepository{
             livrosCadastrados.add(livro);
             numero++;
         }
-        System.out.println(livro.getTitulo() + " cadastrado com sucesso");
+        //System.out.println(livro.getTitulo() + " cadastrado com sucesso");
     }
 
     public static void retirarDaEstante(Livro livro){

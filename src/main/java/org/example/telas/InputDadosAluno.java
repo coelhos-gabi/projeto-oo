@@ -15,7 +15,7 @@ public class InputDadosAluno {
         System.out.println("Insira tipo de aluno");
 
         for (TipoAluno tipoAluno : TipoAluno.values()){
-            System.out.println(tipoAluno.getCODE() + " - " + tipoAluno.getDESCRICAO());
+            System.out.println(tipoAluno.getCode() + " - " + tipoAluno.getDescricao());
         }
 
         int option = scanner.nextInt();

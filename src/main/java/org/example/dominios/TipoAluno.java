@@ -4,35 +4,35 @@ public enum TipoAluno {
     GR("Graduação", 4, 1),
     MS("Mestrado", 6, 2),
     DT("Doutorado", 9, 3);
-
-    private final String DESCRICAO;
-    private final int MAXLIVROS;
-    private final int CODE;
+    //mudar atributos
+    private final String descricao;
+    private final int maxLivros;
+    private final int code;
 
     TipoAluno(String descricao, int maxLivros, int code) {
-        this.DESCRICAO = descricao;
-        this.MAXLIVROS = maxLivros;
-        this.CODE = code;
+        this.descricao = descricao;
+        this.maxLivros = maxLivros;
+        this.code = code;
     }
 
-    public String getDESCRICAO() {
-        return DESCRICAO;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public int getCODE() {
-        return CODE;
+    public int getCode() {
+        return code;
     }
 
     public static TipoAluno valueOfCode(int opcao) {
         for(TipoAluno tipoAluno : TipoAluno.values()){
-            if(tipoAluno.getCODE() == opcao){
+            if(tipoAluno.getCode() == opcao){
                 return tipoAluno;
             }
         }
         return null;
     }
 
-    public int getMAXLIVROS() {
-        return MAXLIVROS;
+    public int getMaxLivros() {
+        return maxLivros;
     }
 }

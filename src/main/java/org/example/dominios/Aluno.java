@@ -30,12 +30,12 @@ public class Aluno {
         return tipoAluno;
     }
 
-    public String getTituloDosLivrosEmprestados() {
+    public StringBuilder getTituloDosLivrosEmprestados() {
         StringBuilder nomeLivros = new StringBuilder();
         for (Livro livros : livrosEmprestados) {
             nomeLivros.append(livros.getTitulo()).append("\n") ;
         }
-        return "\n" + nomeLivros;
+        return nomeLivros;
     }
     public int alunoPossuiLivro(String isbn){
         for (Livro livros : livrosEmprestados){
@@ -64,10 +64,10 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Nome:'" + nome + '\'' +
-                "\n Matricula:'" + matricula + '\'' +
-                "\n tipoAluno:" + tipoAluno.getDESCRICAO() +
-                "\n Livros emprestados: \n" + getTituloDosLivrosEmprestados();
+        return "Nome: " + nome +
+                "\nMatricula: " + matricula +
+                "\nTipo Aluno: " + tipoAluno.getDescricao() +
+                "\nLivros emprestados: \n" + " " + getTituloDosLivrosEmprestados();
     }
 
     public boolean getPossuiMulta() {

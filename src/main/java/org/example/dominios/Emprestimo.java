@@ -10,7 +10,7 @@ public class Emprestimo {
         if (!(LivroRepository.getCopiasDisponiveis(livro) > 0)){
             System.out.println("Livro indisponível");
             return;
-        }else if(!(aluno.getQuantidadeLivrosEmprestados() < aluno.getTipoAluno().getMAXLIVROS())){
+        }else if(!(aluno.getQuantidadeLivrosEmprestados() < aluno.getTipoAluno().getMaxLivros())){
             System.out.println("Aluno não pode mais emprestar livros");
             return;
         } else if (aluno.alunoPossuiLivro(livro.getIsbn()) != -1) {

@@ -20,8 +20,10 @@ public class InputDadosAluno {
 
         int option = scanner.nextInt();
         TipoAluno tipoAluno = TipoAluno.valueOfCode(option);
-
-        return new Aluno(nome,matricula,tipoAluno);
+        System.out.println("Insira a senha");
+        String senha = scanner.next();
+        Aluno aluno = new Aluno(nome,matricula,tipoAluno, senha);
+        return aluno;
 
     }
 }

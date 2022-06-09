@@ -12,14 +12,14 @@ public class TelaEmprestimo {
 
     public static void executar(Scanner scanner){
         System.out.println("Insira o ISBN:");
-        String isbn = scanner.next();
+        String idLivro = scanner.next();
         System.out.println("Insira a matricula:");
-        String matricula = scanner.next();
+        String idAluno = scanner.next();
         Livro livro = null;
         Aluno aluno = null;
         try{
-            livro = LivroRepository.procurarLivroISBN(isbn);
-            aluno = AlunosRepository.retornarAluno(matricula);
+            livro = LivroRepository.getInstance().procurarLivroISBN(idLivro);
+            aluno = AlunosRepository.getInstance().read(idAluno);
             Emprestimo.emprestar(livro, aluno);
         }catch(Exception e){
             System.out.println("Dados inválidos");

@@ -2,18 +2,16 @@ package org.example.dominios;
 
 import org.example.repository.LivroRepository;
 
-import java.util.Objects;
-
 public class Livro {
     protected String titulo;
     private String autor;
-    private String isbn;
+    private String id;
     private int totalCopias = 0;
 
-    public Livro(String titulo, String autor, String isbn, int copias) {
+    public Livro(String titulo, String autor, String id, int copias) {
         this.titulo = titulo;
         this.autor = autor;
-        this.isbn = isbn;
+        this.id = id;
         setTotalCopias(copias);
     }
     public String getTitulo() {
@@ -23,8 +21,8 @@ public class Livro {
         return autor;
     }
 
-    public String getIsbn() {
-        return this.isbn;
+    public String getId() {
+        return this.id;
     }
 
     public int getTotalCopias() {
@@ -32,8 +30,8 @@ public class Livro {
     }
 
     public void setTotalCopias(int copias) {
-        if(LivroRepository.procurarLivroISBN(this.isbn) != null) {
-            if (LivroRepository.procurarLivroISBN(this.isbn).getIsbn().equals(this.getIsbn())) {
+        if(LivroRepository.getInstance().procurarLivroISBN(this.id) != null) {
+            if (LivroRepository.getInstance().procurarLivroISBN(this.id).getId().equals(this.getId())) {
                 this.totalCopias += copias;
             }
         }

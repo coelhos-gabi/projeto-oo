@@ -3,31 +3,28 @@ package org.example.dominios;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Aluno {
-    private final String nome;
-    private final String matricula;
+public class Aluno extends User implements IUsuarioAutenticacao {
+
     private ArrayList<Livro> livrosEmprestados = new ArrayList<>();
-    private final TipoAluno tipoAluno;
     private ArrayList<LocalDate> dataEmprestimo = new ArrayList<>();
+    private final TipoAluno tipoAluno;
     private boolean possuiMulta;
+    private String senha;
 
-    public Aluno(String nome, String matricula, TipoAluno tipoAluno) {
-        this.nome = nome;
-        this.matricula = matricula;
+    public Aluno(String nome, String id, TipoAluno tipoAluno, String senha) {
+        super(nome, id, senha);
         this.tipoAluno = tipoAluno;
-        this.possuiMulta = false;
     }
 
-    public String getNome() {
-        return this.nome;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
 
     public TipoAluno getTipoAluno() {
         return tipoAluno;
+    }
+    public boolean getPossuiMulta() {
+        return possuiMulta;
+    }
+    public void setPossuiMulta() {
+        this.possuiMulta = !this.possuiMulta;
     }
 
     public StringBuilder getTituloDosLivrosEmprestados() {
@@ -39,7 +36,7 @@ public class Aluno {
     }
     public int alunoPossuiLivro(String isbn){
         for (Livro livros : livrosEmprestados){
-            if (livros.getIsbn().equals(isbn)) {
+            if (livros.getId().equals(isbn)) {
                 return livrosEmprestados.indexOf(livros);
             }
         }
@@ -65,16 +62,8 @@ public class Aluno {
     @Override
     public String toString() {
         return "Nome: " + nome +
-                "\nMatricula: " + matricula +
+                "\nMatricula: " + id +
                 "\nTipo Aluno: " + tipoAluno.getDescricao() +
                 "\nLivros emprestados: \n" + " " + getTituloDosLivrosEmprestados();
-    }
-
-    public boolean getPossuiMulta() {
-        return possuiMulta;
-    }
-
-    public void setPossuiMulta() {
-        this.possuiMulta = !this.possuiMulta;
     }
 }

@@ -1,8 +1,5 @@
 package org.example.dominios;
 
-import org.example.repository.AlunosRepository;
-import org.example.repository.LivroRepository;
-
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -15,7 +12,7 @@ public class Devolucao {
     private static void verificarMulta(Aluno aluno, Livro livro){
         LocalDate dataDevolucao = LocalDate.now().plusDays(8);
         //LocalDate dataDevolucao = LocalDate.now();
-        int posicao = aluno.alunoPossuiLivro(livro.getIsbn());
+        int posicao = aluno.alunoPossuiLivro(livro.getId());
         LocalDate dataEmprestimo = aluno.getDataEmprestimo(posicao);
 
         Period period = Period.between(dataEmprestimo, dataDevolucao);
@@ -30,7 +27,7 @@ public class Devolucao {
         }
     }
     private static void realizarDevolucao(Aluno aluno, Livro livro){
-        int posicao = aluno.alunoPossuiLivro(livro.getIsbn());
+        int posicao = aluno.alunoPossuiLivro(livro.getId());
         aluno.removerLivro(posicao);
         System.out.println(livro.getTitulo() + " devolvido pelo aluno " + aluno.getNome());
     }

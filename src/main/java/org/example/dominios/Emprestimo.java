@@ -13,7 +13,7 @@ public class Emprestimo {
         }else if(!(aluno.getQuantidadeLivrosEmprestados() < aluno.getTipoAluno().getMaxLivros())){
             System.out.println("Aluno não pode mais emprestar livros");
             return;
-        } else if (aluno.alunoPossuiLivro(livro.getIsbn()) != -1) {
+        } else if (aluno.alunoPossuiLivro(livro.getId()) != -1) {
             System.out.println("Aluno já emprestou esse livro");
             return;
 
@@ -24,7 +24,7 @@ public class Emprestimo {
         }
         else{
             aluno.adicionarLivro(livro);
-            LivroRepository.retirarDaEstante(livro);
+            LivroRepository.getInstance().retirarDaEstante(livro);
             System.out.println(livro.getTitulo() + " emprestado para " + aluno.getNome());
 //            System.out.println("Livros emprestado para " + aluno.getNome() + ": " + aluno.getTituloDosLivrosEmprestados());
 //            System.out.println("Data(s) de emprestimo: " + aluno.getDataEmprestimo());

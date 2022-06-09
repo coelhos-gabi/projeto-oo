@@ -12,11 +12,11 @@ public class TelaDevolucao {
     public static void executar(Scanner scanner){
 
         System.out.println("Insira a matricula do aluno:");
-        String matricula = scanner.next();
-        Aluno aluno = AlunosRepository.retornarAluno(matricula);
+        String idAluno = scanner.next();
+        Aluno aluno = AlunosRepository.getInstance().read(idAluno);
         System.out.println("Insira o isbn do livro");
-        String isbn = scanner.next();
-        Livro livro = LivroRepository.procurarLivroISBN(isbn);
+        String idLivro = scanner.next();
+        Livro livro = LivroRepository.getInstance().procurarLivroISBN(idLivro);
 
         Devolucao.executar(livro, aluno);
     }

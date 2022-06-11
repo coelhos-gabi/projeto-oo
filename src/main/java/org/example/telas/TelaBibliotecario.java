@@ -1,5 +1,6 @@
 package org.example.telas;
 
+import org.example.dominios.Aluno;
 import org.example.dominios.Bibliotecario;
 
 import java.util.Scanner;
@@ -37,7 +38,8 @@ public class TelaBibliotecario {
                     ProcurarLivro.executar(scanner);
                     break;
                 case 6:
-                    ProcurarAluno.executar(scanner);
+                    Aluno aluno = ProcurarAluno.executar(scanner);
+                    System.out.println(aluno);
                     break;
             }
         } while (option != 0);

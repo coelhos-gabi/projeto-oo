@@ -4,10 +4,12 @@ import org.example.dominios.Livro;
 
 import java.util.ArrayList;
 
+// USO DE SINGLETON
+
 public class LivroRepository extends AbstractListRepository<Livro> implements IRepository<Livro> {
 
     private static LivroRepository livroRepository;
-    private static ArrayList<Livro> livrosCadastrados = new ArrayList<>();
+    private ArrayList<Livro> livrosCadastrados = super.list;
     ;
 
     private LivroRepository() {
@@ -20,7 +22,7 @@ public class LivroRepository extends AbstractListRepository<Livro> implements IR
         return livroRepository;
     }
 
-    public static int getCopiasDisponiveis(Livro livro) {
+    public int getCopiasDisponiveis(Livro livro) {
         int contaCopias = 0;
         for (Livro livrosCadastrado : livrosCadastrados) {
             if (livrosCadastrado.getId().equals(livro.getId())) {

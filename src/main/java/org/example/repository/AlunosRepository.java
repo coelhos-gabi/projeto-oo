@@ -4,10 +4,13 @@ import org.example.dominios.Aluno;
 
 import java.util.ArrayList;
 
+// USO DE SINGLETON
+
+
 public class AlunosRepository extends AbstractListRepository<Aluno> {
 
     private static AlunosRepository alunosRepository;
-    private ArrayList<Aluno> alunosCadastrados = new ArrayList<>();
+    private ArrayList<Aluno> alunosCadastrados = super.list;
 
     private AlunosRepository() {
     }

@@ -1,34 +1,70 @@
 package org.example.dominios;
 
-import org.example.repository.LivroRepository;
+import java.time.LocalDate;
 
 public class Emprestimo {
-    private Emprestimo(){
-    }
-    public static void emprestar(Livro livro, Aluno aluno){
+    private Aluno aluno;
+    private Livro livro;
+    private LocalDate dataEmprestimo;
+    private LocalDate dataDevolucaoReal = null;
+    private String id;
 
-        if (!(LivroRepository.getCopiasDisponiveis(livro) > 0)){
-            System.out.println("Livro indisponível");
-            return;
-        }else if(!(aluno.getQuantidadeLivrosEmprestados() < aluno.getTipoAluno().getMaxLivros())){
-            System.out.println("Aluno não pode mais emprestar livros");
-            return;
-        } else if (aluno.alunoPossuiLivro(livro.getId()) != -1) {
-            System.out.println("Aluno já emprestou esse livro");
-            return;
-
-        }else if (aluno.getPossuiMulta()) {
-            System.out.println("Aluno possui multa");
-            System.out.println("Emprestimo somente após o pagamento da multa");
-            return;
-        }
-        else{
-            aluno.adicionarLivro(livro);
-            LivroRepository.getInstance().retirarDaEstante(livro);
-            System.out.println(livro.getTitulo() + " emprestado para " + aluno.getNome());
-//            System.out.println("Livros emprestado para " + aluno.getNome() + ": " + aluno.getTituloDosLivrosEmprestados());
-//            System.out.println("Data(s) de emprestimo: " + aluno.getDataEmprestimo());
-        }
+    public Emprestimo(Aluno aluno, Livro livro) {
+        this.aluno = aluno;
+        this.livro = livro;
+        this.dataEmprestimo = LocalDate.now();
     }
 
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
+
+    public LocalDate getDataDevolucaoReal() {
+        return dataDevolucaoReal;
+    }
+
+    public void setDataDevolucaoReal(LocalDate dataDevolucaoReal) {
+        this.dataDevolucaoReal = dataDevolucaoReal;
+    }
+
+    public LocalDate calcularDataDevolucao() {
+        LocalDate dataPrevista = this.dataEmprestimo.plusDays(7);
+        return dataPrevista;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public
+
+    @Override
+    public String toString() {
+        if (dataDevolucaoReal != null) {
+            return ("Aluno = " + aluno.getNome() +
+                    " | livro = " + livro.getTitulo() +
+                    " | data do empréstimo = " + dataEmprestimo +
+                    " | data prevista de devolução = " + calcularDataDevolucao() +
+                    " | data em que foi devolvido = " + dataDevolucaoReal);
+        } else {
+            return ("Aluno = " + aluno.getNome() +
+                    " | livro = " + livro.getTitulo() +
+                    " | data do empréstimo = " + dataEmprestimo +
+                    " | data prevista de devolução = " + calcularDataDevolucao() +
+                    " | não foi devolvido até o momento");
+        }
+
+    }
 }

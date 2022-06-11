@@ -32,12 +32,15 @@ public class Init {
         User aluno1 = new Aluno("aluno1", "12345", TipoAluno.GR, "123");
         User aluno2 = new Aluno("aluno2", "23456", TipoAluno.MS, "123");
         User aluno3 = new Aluno("aluno3", "34567", TipoAluno.DT, "123");
+
         User bibliotecario1 = new Bibliotecario("biblio1", "1", "123");
         User bibliotecario2 = new Bibliotecario("biblio2", "2", "123");
         User bibliotecario3 = new Bibliotecario("biblio3", "3", "123");
-        AlunosRepository.getInstance().save(aluno1);
-        AlunosRepository.getInstance().save(aluno2);
-        AlunosRepository.getInstance().save(aluno3);
+
+        AlunosRepository.getInstance().save((Aluno) aluno1);
+        AlunosRepository.getInstance().save((Aluno) aluno2);
+        AlunosRepository.getInstance().save((Aluno) aluno3);
+
         UserRepository.getInstance().save(aluno1);
         UserRepository.getInstance().save(aluno2);
         UserRepository.getInstance().save(aluno3);

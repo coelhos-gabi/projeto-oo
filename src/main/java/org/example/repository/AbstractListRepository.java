@@ -6,7 +6,7 @@ import java.util.Objects;
 
 
 public abstract class AbstractListRepository<T> implements IRepository<T>, Comparator<T> {
-    protected ArrayList<T> list;
+    protected ArrayList<T> list = new ArrayList<>();
 
     public AbstractListRepository() {
     }

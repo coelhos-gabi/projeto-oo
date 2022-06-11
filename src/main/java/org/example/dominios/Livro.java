@@ -14,9 +14,11 @@ public class Livro {
         this.id = id;
         setTotalCopias(copias);
     }
+
     public String getTitulo() {
         return titulo;
     }
+
     public String getAutor() {
         return autor;
     }
@@ -30,14 +32,12 @@ public class Livro {
     }
 
     public void setTotalCopias(int copias) {
-        if(LivroRepository.getInstance().procurarLivroISBN(this.id) != null) {
+        if (LivroRepository.getInstance().procurarLivroISBN(this.id) != null) {
             if (LivroRepository.getInstance().procurarLivroISBN(this.id).getId().equals(this.getId())) {
                 this.totalCopias += copias;
             }
-        }
-        else {
+        } else {
             this.totalCopias = copias;
         }
     }
-
 }

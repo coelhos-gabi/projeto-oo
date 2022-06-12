@@ -32,7 +32,7 @@ public class TelaBibliotecario {
                     TelaEmprestimo.executar(scanner);
                     break;
                 case 4:
-                    TelaEmprestimo.executar(scanner);
+                    TelaDevolucao.executar(scanner);
                     break;
                 case 5:
                     ProcurarLivro.executar(scanner);

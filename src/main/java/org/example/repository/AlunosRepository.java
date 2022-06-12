@@ -3,16 +3,18 @@ package org.example.repository;
 import org.example.dominios.Aluno;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 // USO DE SINGLETON
 
 
-public class AlunosRepository extends AbstractListRepository<Aluno> {
+public class AlunosRepository implements IRepository<Aluno>, Comparator<Aluno> {
 
     private static AlunosRepository alunosRepository;
-    private ArrayList<Aluno> alunosCadastrados = super.list;
+    private ArrayList<Aluno> alunosCadastrados;
 
     private AlunosRepository() {
+        alunosCadastrados = new ArrayList<>();
     }
 
     public static AlunosRepository getInstance() {

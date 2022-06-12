@@ -7,11 +7,12 @@ import java.util.ArrayList;
 // USO DE SINGLETON
 
 
-public class EmprestimoRepository extends AbstractListRepository<Emprestimo> {
+public class EmprestimoRepository implements IRepository<Emprestimo> {
     private static EmprestimoRepository emprestimoRepository;
-    private ArrayList<Emprestimo> emprestimosCadastrados = super.list;
+    private ArrayList<Emprestimo> emprestimosCadastrados;
 
     private EmprestimoRepository() {
+        emprestimosCadastrados = new ArrayList<>();
     }
 
     public static EmprestimoRepository getInstance() {
@@ -45,10 +46,5 @@ public class EmprestimoRepository extends AbstractListRepository<Emprestimo> {
             }
         }
         return null;
-    }
-
-    @Override
-    public int compare(Emprestimo emprestimo1, Emprestimo emprestimo2) {
-        return emprestimo1.getId().compareTo(emprestimo2.getId());
     }
 }

@@ -18,6 +18,5 @@ public class TelaDevolucao {
         String idLivro = scanner.next();
         Livro livro = LivroRepository.getInstance().procurarLivroISBN(idLivro);
 
-        Devolucao.executar(livro, aluno);
     }
 }

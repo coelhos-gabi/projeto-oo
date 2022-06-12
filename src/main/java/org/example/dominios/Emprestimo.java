@@ -1,17 +1,18 @@
 package org.example.dominios;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Emprestimo {
     private Aluno aluno;
-    private Livro livro;
+    private ArrayList<Livro> livrosEmprestados;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucaoReal = null;
     private String id;
 
-    public Emprestimo(Aluno aluno, Livro livro) {
+    public Emprestimo(Aluno aluno, ArrayList<Livro> livros) {
         this.aluno = aluno;
-        this.livro = livro;
+        this.livrosEmprestados = livros;
         this.dataEmprestimo = LocalDate.now();
     }
 
@@ -23,12 +24,12 @@ public class Emprestimo {
         this.aluno = aluno;
     }
 
-    public Livro getLivro() {
-        return livro;
+    public ArrayList<Livro> getLivro() {
+        return livrosEmprestados;
     }
 
     public void setLivro(Livro livro) {
-        this.livro = livro;
+        livrosEmprestados.add(livro);
     }
 
     public LocalDate getDataDevolucaoReal() {
@@ -39,32 +40,29 @@ public class Emprestimo {
         this.dataDevolucaoReal = dataDevolucaoReal;
     }
 
-    public LocalDate calcularDataDevolucao() {
-        LocalDate dataPrevista = this.dataEmprestimo.plusDays(7);
-        return dataPrevista;
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
     }
 
     public String getId() {
         return id;
     }
 
-    public
-
-    @Override
-    public String toString() {
-        if (dataDevolucaoReal != null) {
-            return ("Aluno = " + aluno.getNome() +
-                    " | livro = " + livro.getTitulo() +
-                    " | data do empréstimo = " + dataEmprestimo +
-                    " | data prevista de devolução = " + calcularDataDevolucao() +
-                    " | data em que foi devolvido = " + dataDevolucaoReal);
-        } else {
-            return ("Aluno = " + aluno.getNome() +
-                    " | livro = " + livro.getTitulo() +
-                    " | data do empréstimo = " + dataEmprestimo +
-                    " | data prevista de devolução = " + calcularDataDevolucao() +
-                    " | não foi devolvido até o momento");
-        }
-
-    }
+//    @Override
+//    public String toString() {
+//        if (dataDevolucaoReal != null) {
+//            return ("Aluno = " + aluno.getNome() +
+//                    " | livro = " + livro.getTitulo() +
+//                    " | data do empréstimo = " + dataEmprestimo +
+//                    " | data prevista de devolução = " + calcularDataDevolucao() +
+//                    " | data em que foi devolvido = " + dataDevolucaoReal);
+//        } else {
+//            return ("Aluno = " + aluno.getNome() +
+//                    " | livro = " + livro.getTitulo() +
+//                    " | data do empréstimo = " + dataEmprestimo +
+//                    " | data prevista de devolução = " + calcularDataDevolucao() +
+//                    " | não foi devolvido até o momento");
+//        }
+//
+//    }
 }

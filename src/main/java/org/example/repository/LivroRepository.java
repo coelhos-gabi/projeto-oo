@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 // USO DE SINGLETON
 
-public class LivroRepository extends AbstractListRepository<Livro> implements IRepository<Livro> {
+public class LivroRepository implements IRepository<Livro> {
 
     private static LivroRepository livroRepository;
-    private ArrayList<Livro> livrosCadastrados = super.list;
-    ;
+    private ArrayList<Livro> livrosCadastrados;
 
     private LivroRepository() {
+        livrosCadastrados = new ArrayList<>();
     }
 
     public static LivroRepository getInstance() {
@@ -60,11 +60,6 @@ public class LivroRepository extends AbstractListRepository<Livro> implements IR
             }
         }
         return false;
-    }
-
-    @Override
-    public int compare(Livro livro1, Livro livro2) {
-        return livro1.getId().compareTo(livro2.getId());
     }
 
     public void retirarDaEstante(Livro livro) {

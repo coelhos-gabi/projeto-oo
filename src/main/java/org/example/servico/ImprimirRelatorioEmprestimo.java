@@ -1,6 +1,6 @@
 package org.example.servico;
 
-public class ImprimirRelatorio {
+public class ImprimirRelatorioEmprestimo {
 
     public void imprimir() {
 

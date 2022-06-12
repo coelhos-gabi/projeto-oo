@@ -2,6 +2,7 @@ package org.example.telas;
 
 import org.example.dominios.Aluno;
 import org.example.dominios.Bibliotecario;
+import org.example.servico.ImprimirRelatorioEmprestimo;
 
 import java.util.Scanner;
 
@@ -18,6 +19,7 @@ public class TelaBibliotecario {
             System.out.println("   4 - Realizar devolução");
             System.out.println("   5 - Procurar livro");
             System.out.println("   6 - Procurar aluno");
+            System.out.println("   7 - Imprimir relatório");
             System.out.println("   0 - Sair");
             System.out.println("-------------------------------------");
             option = scanner.nextInt();
@@ -40,6 +42,9 @@ public class TelaBibliotecario {
                 case 6:
                     Aluno aluno = ProcurarAluno.executar(scanner);
                     System.out.println(aluno);
+                    break;
+                case 7:
+                    ImprimirRelatorioEmprestimo.executar();
                     break;
             }
         } while (option != 0);

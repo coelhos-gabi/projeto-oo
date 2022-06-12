@@ -1,15 +1,16 @@
 package org.example.servico;
 
 import org.example.dominios.Aluno;
+import org.example.dominios.Emprestimo;
 import org.example.dominios.Livro;
-
-import java.util.ArrayList;
+import org.example.repository.EmprestimoRepository;
 
 public class RealizarEmprestimo {
-    public void emprestar(Aluno aluno, ArrayList<Livro> livro) {
 
-        //TODO
+    public static void executar(Aluno aluno, Livro livrosEmprestados) {
 
+        Emprestimo emprestimo = new Emprestimo(aluno, livrosEmprestados);
+        EmprestimoRepository.getInstance().save(emprestimo);
 
     }
 }

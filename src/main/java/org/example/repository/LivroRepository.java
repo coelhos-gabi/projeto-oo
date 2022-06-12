@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 // USO DE SINGLETON
 
-public class LivroRepository implements IRepository<Livro> {
+public class LivroRepository extends AbstractListRepository<Livro> {
 
     private static LivroRepository livroRepository;
     private ArrayList<Livro> livrosCadastrados;
@@ -94,5 +94,10 @@ public class LivroRepository implements IRepository<Livro> {
             }
         }
         return null;
+    }
+
+    @Override
+    public int compare(Livro livro1, Livro livro2) {
+        return livro1.getId().compareTo(livro2.getId());
     }
 }

@@ -1,18 +1,17 @@
 package org.example.dominios;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-public class Emprestimo {
+public class Emprestimo implements Comparable<Emprestimo> {
     private Aluno aluno;
-    private ArrayList<Livro> livrosEmprestados;
+    private Livro livroEmprestado;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucaoReal = null;
     private String id;
 
-    public Emprestimo(Aluno aluno, ArrayList<Livro> livros) {
+    public Emprestimo(Aluno aluno, Livro livroEmprestado) {
         this.aluno = aluno;
-        this.livrosEmprestados = livros;
+        this.livroEmprestado = livroEmprestado;
         this.dataEmprestimo = LocalDate.now();
     }
 
@@ -24,13 +23,10 @@ public class Emprestimo {
         this.aluno = aluno;
     }
 
-    public ArrayList<Livro> getLivro() {
-        return livrosEmprestados;
+    public Livro getLivro() {
+        return livroEmprestado;
     }
 
-    public void setLivro(Livro livro) {
-        livrosEmprestados.add(livro);
-    }
 
     public LocalDate getDataDevolucaoReal() {
         return dataDevolucaoReal;
@@ -40,29 +36,51 @@ public class Emprestimo {
         this.dataDevolucaoReal = dataDevolucaoReal;
     }
 
-    public LocalDate getDataEmprestimo() {
-        return dataEmprestimo;
+    public LocalDate calcularDataDevolucao() {
+        LocalDate dataPrevista = this.dataEmprestimo.plusDays(7);
+        return dataPrevista;
     }
 
     public String getId() {
         return id;
     }
 
+
+    @Override
+    public String toString() {
+        return ("Aluno = " + aluno.getNome() + "\n" +
+                " | Livro = " + livroEmprestado.getTitulo() + "\n" +
+                " | Data do empréstimo = " + dataEmprestimo + "\n" +
+                " | Data prevista de devolução = " + calcularDataDevolucao() + "\n" +
+                " | Data em que foi devolvido = " + dataDevolucaoReal + "\n");
+
+    }
+
+//    @Override
+//    public int compare(Emprestimo emprestimo1, Emprestimo emprestimo2) {
+//        return emprestimo1.getAluno().getNome().compareTo(emprestimo2.getAluno().getNome());
+//    }
+
+    @Override
+    public int compareTo(Emprestimo emprestimo) {
+        return this.getAluno().getNome().compareTo(emprestimo.getAluno().getNome());
+    }
+
+
 //    @Override
 //    public String toString() {
 //        if (dataDevolucaoReal != null) {
 //            return ("Aluno = " + aluno.getNome() +
-//                    " | livro = " + livro.getTitulo() +
+//                    " | livro = " + livrosEmprestados.getTitulo() +
 //                    " | data do empréstimo = " + dataEmprestimo +
 //                    " | data prevista de devolução = " + calcularDataDevolucao() +
 //                    " | data em que foi devolvido = " + dataDevolucaoReal);
 //        } else {
 //            return ("Aluno = " + aluno.getNome() +
-//                    " | livro = " + livro.getTitulo() +
+//                    " | livro = " + livrosEmprestados.getTitulo() +
 //                    " | data do empréstimo = " + dataEmprestimo +
 //                    " | data prevista de devolução = " + calcularDataDevolucao() +
 //                    " | não foi devolvido até o momento");
 //        }
-//
-//    }
+
 }

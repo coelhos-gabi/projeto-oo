@@ -13,7 +13,8 @@ public class TelaAluno {
             System.out.println("   O que deseja fazer?");
             System.out.println("   1 - Procurar livro");
             System.out.println("   2 - Verificar seus dados");
-            System.out.println("   3 - Realizar pagamento de multas");
+            System.out.println("   3 - Status empréstimos");
+            System.out.println("   4 - Realizar pagamento de multas");
             System.out.println("   0 - Sair");
             System.out.println("-------------------------------------");
             option = scanner.nextInt();
@@ -25,6 +26,8 @@ public class TelaAluno {
                     System.out.println(aluno);
                     break;
                 case 3:
+                    StatusEmprestimo.executar(aluno);
+                case 4:
                     //Pagamento.executar();
                     break;
             }

@@ -4,7 +4,7 @@ import org.example.dominios.User;
 
 import java.util.ArrayList;
 
-public class UserRepository implements IRepository<User> {
+public class UserRepository extends AbstractListRepository<User> {
 
     private static UserRepository userRepository;
     private ArrayList<User> usuariosCadastrados = new ArrayList<>();
@@ -44,4 +44,10 @@ public class UserRepository implements IRepository<User> {
         }
         return false;
     }
+
+    @Override
+    public int compare(User usuario1, User usuario2) {
+        return usuario1.getId().compareTo(usuario2.getId());
+    }
+
 }

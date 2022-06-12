@@ -3,11 +3,12 @@ package org.example.repository;
 import org.example.dominios.Emprestimo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // USO DE SINGLETON
 
 
-public class EmprestimoRepository implements IRepository<Emprestimo> {
+public class EmprestimoRepository extends AbstractListRepository<Emprestimo> {
     private static EmprestimoRepository emprestimoRepository;
     private ArrayList<Emprestimo> emprestimosCadastrados;
 
@@ -46,5 +47,14 @@ public class EmprestimoRepository implements IRepository<Emprestimo> {
             }
         }
         return null;
+    }
+
+    public List<Emprestimo> getEmprestimosCadastrados() {
+        return emprestimosCadastrados;
+    }
+
+    @Override
+    public int compare(Emprestimo emprestimo1, Emprestimo emprestimo2) {
+        return 0;
     }
 }

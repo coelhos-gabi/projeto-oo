@@ -89,8 +89,7 @@ public class LivroRepository implements IRepository<Livro> {
 
     public Livro procurarLivroISBN(String isbnBusca) {
         for (Livro livroBuscado : livrosCadastrados) {
-            String isbn = livroBuscado.getId();
-            if (isbn.equals(isbnBusca)) {
+            if (livroBuscado.getId().equals(isbnBusca)) {
                 return livroBuscado;
             }
         }

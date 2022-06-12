@@ -3,6 +3,7 @@ package org.example.dominios;
 public class Aluno extends User implements IUsuarioAutenticacao {
 
     private final TipoAluno tipoAluno;
+    private boolean possuiMulta = false;
 
     public Aluno(String nome, String id, TipoAluno tipoAluno, String senha) {
         super(nome, id, senha);
@@ -23,12 +24,20 @@ public class Aluno extends User implements IUsuarioAutenticacao {
         return true;
     }
 
+    public String getPossuiMulta() {
+        return this.possuiMulta ? "sim" : "não";
+    }
+
+    public void setPossuiMulta() {
+        this.possuiMulta = !this.possuiMulta;
+    }
+
     @Override
     public String toString() {
         return "Nome: " + nome +
                 "\nMatricula: " + id +
                 "\nTipo Aluno: " + tipoAluno.getDescricao() +
-                "\nSenha: " + senha;
+                "\nPossui multa: " + getPossuiMulta();
     }
 }
 

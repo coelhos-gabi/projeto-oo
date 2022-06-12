@@ -28,7 +28,7 @@ public class AlunosRepository implements IRepository<Aluno>, Comparator<Aluno> {
     public boolean isSaved(Aluno alunoEntrada) {
         for (Aluno aluno : alunosCadastrados) {
             int comparador = aluno.getId().compareTo(alunoEntrada.getId());
-            if (comparador != 0) {
+            if (comparador == 0) {
                 return true;
             }
         }

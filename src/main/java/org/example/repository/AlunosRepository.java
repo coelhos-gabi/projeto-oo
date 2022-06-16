@@ -8,12 +8,13 @@ import java.util.Comparator;
 // USO DE SINGLETON
 
 
-public class AlunosRepository implements IRepository<Aluno>, Comparator<Aluno> {
+public class AlunosRepository extends AbstractListRepository<Aluno> implements IRepository<Aluno>, Comparator<Aluno> {
 
     private static AlunosRepository alunosRepository;
     private ArrayList<Aluno> alunosCadastrados;
 
     private AlunosRepository() {
+        super();
         alunosCadastrados = new ArrayList<>();
     }
 
@@ -25,20 +26,10 @@ public class AlunosRepository implements IRepository<Aluno>, Comparator<Aluno> {
     }
 
     @Override
-    public boolean isSaved(Aluno alunoEntrada) {
-        for (Aluno aluno : alunosCadastrados) {
-            int comparador = aluno.getId().compareTo(alunoEntrada.getId());
-            if (comparador == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
     public void save(Aluno aluno) {
         alunosCadastrados.add(aluno);
     }
+
 
     @Override
     public Aluno read(String id) {

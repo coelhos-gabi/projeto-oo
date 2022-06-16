@@ -4,7 +4,7 @@ public enum TipoAluno {
     GR("Graduação", 4, 1),
     MS("Mestrado", 6, 2),
     DT("Doutorado", 9, 3);
-    //mudar atributos
+
     private final String descricao;
     private final int maxLivros;
     private final int code;

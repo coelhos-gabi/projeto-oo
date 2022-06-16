@@ -1,0 +1,18 @@
+ROTEIRO DESENVOLVIMENTO
+
+- implementar equals no aluno
+- Realizar devoluçao;
+- Calular Multa;
+- Cadastro de alunos;
+- Cadastro de livros;
+- Imprmir relatório - Colocar por aluno;
+
+
+
+Se sobrar tempo:
+    - Criar empréstimo de outros materiais;
+    - Método geral nos repositorios < T extends Abstact Repository>;
+
+
+
+    - OPEN CLOSED (?!)

@@ -24,8 +24,4 @@ public class User implements IUsuarioAutenticacao {
         this.senha = senha;
     }
 
-    @Override
-    public boolean autenticar(String id, String senha) {
-        return (this.getId().equals(id) && this.senha.equals(senha));
-    }
 }

@@ -10,10 +10,9 @@ import java.util.List;
 
 public class EmprestimoRepository extends AbstractListRepository<Emprestimo> {
     private static EmprestimoRepository emprestimoRepository;
-    private ArrayList<Emprestimo> emprestimosCadastrados;
+    private ArrayList<Emprestimo> emprestimosCadastrados = super.list;
 
     private EmprestimoRepository() {
-        emprestimosCadastrados = new ArrayList<>();
     }
 
     public static EmprestimoRepository getInstance() {
@@ -57,4 +56,6 @@ public class EmprestimoRepository extends AbstractListRepository<Emprestimo> {
     public int compare(Emprestimo emprestimo1, Emprestimo emprestimo2) {
         return 0;
     }
+
+
 }

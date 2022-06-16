@@ -41,6 +41,9 @@ public class TelaBibliotecario {
                     break;
                 case 6:
                     Aluno aluno = ProcurarAluno.executar(scanner);
+                    if(aluno == null){
+                        break;
+                    }
                     System.out.println(aluno);
                     break;
                 case 7:

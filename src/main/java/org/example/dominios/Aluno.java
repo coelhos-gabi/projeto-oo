@@ -1,5 +1,7 @@
 package org.example.dominios;
 
+import java.util.Objects;
+
 public class Aluno extends User implements IUsuarioAutenticacao {
 
     private final TipoAluno tipoAluno;
@@ -19,11 +21,6 @@ public class Aluno extends User implements IUsuarioAutenticacao {
         this.senha = senha;
     }
 
-    @Override
-    public boolean autenticar(String id, String senha) {
-        return true;
-    }
-
     public String getPossuiMulta() {
         return this.possuiMulta ? "sim" : "não";
     }
@@ -37,7 +34,20 @@ public class Aluno extends User implements IUsuarioAutenticacao {
         return "Nome: " + nome +
                 "\nMatricula: " + id +
                 "\nTipo Aluno: " + tipoAluno.getDescricao() +
-                "\nPossui multa: " + getPossuiMulta();
+                "\nPossui multa? " + getPossuiMulta();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Aluno aluno = (Aluno) o;
+        return aluno.getId().equals(this.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getId());
     }
 }
 

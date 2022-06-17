@@ -1,6 +1,7 @@
 package org.example.dominios;
 
 import org.example.repository.LivroRepository;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.Objects;
 
@@ -14,7 +15,7 @@ public class Livro {
         this.titulo = titulo;
         this.autor = autor;
         this.id = id;
-        //setTotalCopias(copias);
+        this.totalCopias = copias;
     }
 
     public String getTitulo() {
@@ -35,8 +36,8 @@ public class Livro {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
         Livro livro = (Livro) o;
         return livro.getId().equals(this.getId());
     }
@@ -45,4 +46,10 @@ public class Livro {
     public int hashCode() {
         return Objects.hash(this.getId());
     }
+
+    public void setTotalCopias(int copias) {
+        this.totalCopias += copias;
+    }
+
+
 }

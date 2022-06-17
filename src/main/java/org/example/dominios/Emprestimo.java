@@ -1,6 +1,8 @@
 package org.example.dominios;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Emprestimo implements Comparable<Emprestimo> {
     private Aluno aluno;
@@ -8,6 +10,8 @@ public class Emprestimo implements Comparable<Emprestimo> {
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucaoReal = null;
     private String id;
+    private boolean foiDevolvido = false;
+    private BigDecimal multa = BigDecimal.valueOf(0);
 
     public Emprestimo(Aluno aluno, Livro livroEmprestado) {
         this.aluno = aluno;
@@ -27,18 +31,21 @@ public class Emprestimo implements Comparable<Emprestimo> {
         return livroEmprestado;
     }
 
-
     public LocalDate getDataDevolucaoReal() {
-        return dataDevolucaoReal;
+        if(isFoiDevolvido().equals("Sim")){
+            return dataDevolucaoReal.plusDays(10);
+        } //SOMENTE PARA TESTAR A MULTA
+        else{
+            return null;
+        }
     }
 
     public void setDataDevolucaoReal(LocalDate dataDevolucaoReal) {
         this.dataDevolucaoReal = dataDevolucaoReal;
     }
 
-    public LocalDate calcularDataDevolucao() {
-        LocalDate dataPrevista = this.dataEmprestimo.plusDays(7);
-        return dataPrevista;
+    public LocalDate getDataPrevista() {
+        return this.dataEmprestimo.plusDays(7);
     }
 
     public String getId() {
@@ -50,37 +57,51 @@ public class Emprestimo implements Comparable<Emprestimo> {
     public String toString() {
         return ("Aluno = " + aluno.getNome() + "\n" +
                 " | Livro = " + livroEmprestado.getTitulo() + "\n" +
-                " | Data do empréstimo = " + dataEmprestimo + "\n" +
-                " | Data prevista de devolução = " + calcularDataDevolucao() + "\n" +
-                " | Data em que foi devolvido = " + dataDevolucaoReal + "\n");
+                " | Data do empréstimo = " + stringDataEmprestimo() + "\n" +
+                " | Data prevista de devolução = " + stringDataPrevistaDevolucao() + "\n" +
+                " | Livro foi devolvido? = " + isFoiDevolvido() + "\n" +
+                " | Data em que foi devolvido = " + stringDataDevolucao() + "\n");
 
     }
 
-//    @Override
-//    public int compare(Emprestimo emprestimo1, Emprestimo emprestimo2) {
-//        return emprestimo1.getAluno().getNome().compareTo(emprestimo2.getAluno().getNome());
-//    }
+
 
     @Override
     public int compareTo(Emprestimo emprestimo) {
         return this.getAluno().getNome().compareTo(emprestimo.getAluno().getNome());
     }
 
+    public String isFoiDevolvido() {
+        return foiDevolvido ? "Sim":"Não";
+    }
 
-//    @Override
-//    public String toString() {
-//        if (dataDevolucaoReal != null) {
-//            return ("Aluno = " + aluno.getNome() +
-//                    " | livro = " + livrosEmprestados.getTitulo() +
-//                    " | data do empréstimo = " + dataEmprestimo +
-//                    " | data prevista de devolução = " + calcularDataDevolucao() +
-//                    " | data em que foi devolvido = " + dataDevolucaoReal);
-//        } else {
-//            return ("Aluno = " + aluno.getNome() +
-//                    " | livro = " + livrosEmprestados.getTitulo() +
-//                    " | data do empréstimo = " + dataEmprestimo +
-//                    " | data prevista de devolução = " + calcularDataDevolucao() +
-//                    " | não foi devolvido até o momento");
-//        }
+    public void setFoiDevolvido() {
+        this.foiDevolvido = !foiDevolvido; //SETAR O CONTRÁRIO
+    }
 
+    private String stringDataDevolucao(){
+        return foiDevolvido ? LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                : "Aguardando devolução ";
+
+    }
+
+    private String stringDataPrevistaDevolucao(){
+      return getDataPrevista().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
+
+    private String stringDataEmprestimo(){
+      return dataEmprestimo.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
+
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setMulta(BigDecimal multa) {
+        this.multa = multa;
+    }
+
+    public BigDecimal getMulta() {
+        return multa;
+    }
 }

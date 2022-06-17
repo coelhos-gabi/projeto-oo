@@ -22,6 +22,7 @@ public class ProcurarLivro {
         System.out.println("Título: " + livro.getTitulo());
         System.out.println("Autor: " + livro.getAutor());
         System.out.println("ISBN: " + livro.getId());
+        System.out.println("Total cópias: " + livro.getTotalCopias());
 //        procurarLivro(scanner, entrada);
     }
 

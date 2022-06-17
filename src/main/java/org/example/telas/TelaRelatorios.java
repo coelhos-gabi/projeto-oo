@@ -1,34 +1,32 @@
 package org.example.telas;
 
-import org.example.dominios.Aluno;
+import org.example.servico.ImprimirRelatorioEmprestimoPorAluno;
+import org.example.servico.ImprimirRelatorioGeralEmprestimo;
 import org.example.servico.ImprimirRelatorioMulta;
 
 import java.util.Scanner;
 
-public class TelaAluno {
-    public static void executar(Aluno aluno, Scanner scanner) {
+public class TelaRelatorios {
+
+    public static void executar(Scanner scanner) {
         int option;
         do {
             System.out.println("-------------------------------------");
-            System.out.printf("            Bem-vindo %s %n", aluno.getNome());
             System.out.println("   O que deseja fazer?");
-            System.out.println("   1 - Procurar livro");
-            System.out.println("   2 - Verificar seus dados");
-            System.out.println("   3 - Status empréstimos");
-            System.out.println("   4 - Imprimir relatório de pendencias");
+            System.out.println("   1 - Imprimir relatório geral de livros emprestados");
+            System.out.println("   2 - Imprimir relatório de livros emprestados por aluno");
+            System.out.println("   3 - Imprimir relatório de multa por aluno");
             System.out.println("   0 - Sair");
             System.out.println("-------------------------------------");
             option = scanner.nextInt();
             switch (option) {
                 case 1:
-                    ProcurarLivro.executar(scanner);
+                    ImprimirRelatorioGeralEmprestimo.executar(scanner);
                     break;
                 case 2:
-                    System.out.println(aluno);
+                    ImprimirRelatorioEmprestimoPorAluno.executar(scanner);
                     break;
                 case 3:
-                   // StatusEmprestimo.executar(aluno);
-                case 4:
                     ImprimirRelatorioMulta.executar(scanner);
                     break;
             }

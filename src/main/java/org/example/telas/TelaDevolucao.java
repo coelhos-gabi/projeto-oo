@@ -4,6 +4,7 @@ import org.example.dominios.Aluno;
 import org.example.dominios.Livro;
 import org.example.repository.AlunosRepository;
 import org.example.repository.LivroRepository;
+import org.example.servico.RealizarDevolucao;
 
 import java.util.Scanner;
 
@@ -17,6 +18,8 @@ public class TelaDevolucao {
         System.out.println("Insira o isbn do livro");
         String idLivro = scanner.next();
         Livro livro = LivroRepository.getInstance().procurarLivroISBN(idLivro);
+        RealizarDevolucao devolucao = new RealizarDevolucao();
+        devolucao.devolver(livro, aluno);
 
     }
 }

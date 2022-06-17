@@ -7,10 +7,10 @@ import org.example.repository.EmprestimoRepository;
 
 public class RealizarEmprestimo {
 
-    public static void executar(Aluno aluno, Livro livrosEmprestados) {
-
-        Emprestimo emprestimo = new Emprestimo(aluno, livrosEmprestados);
+    public static void executar(Aluno aluno, Livro livroEmprestado) {
+        Emprestimo emprestimo = new Emprestimo(aluno, livroEmprestado);
         EmprestimoRepository.getInstance().save(emprestimo);
+        livroEmprestado.setTotalCopias(-1);
 
     }
 }

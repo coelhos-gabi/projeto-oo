@@ -34,6 +34,7 @@ public class Emprestimo implements Comparable<Emprestimo> {
 
     public LocalDate getDataDevolucaoReal() {
         if(isFoiDevolvido().equals("Sim")){
+            setDataDevolucaoReal(dataDevolucaoReal.plusDays(10));
             return dataDevolucaoReal.plusDays(10);
         } //SOMENTE PARA TESTAR A MULTA
         else{
@@ -92,10 +93,6 @@ public class Emprestimo implements Comparable<Emprestimo> {
 
     private String stringDataEmprestimo(){
       return dataEmprestimo.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-    }
-
-    public LocalDate getDataEmprestimo() {
-        return dataEmprestimo;
     }
 
     public void setMulta(BigDecimal multa) {

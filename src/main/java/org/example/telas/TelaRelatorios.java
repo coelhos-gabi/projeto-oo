@@ -25,7 +25,7 @@ public class TelaRelatorios {
                     ImprimirRelatorioGeralEmprestimo.executar(scanner);
                     break;
                 case 2:
-                    ImprimirRelatorioEmprestimoPorAluno.executar(scanner);
+                    ImprimirRelatorioEmprestimoPorAluno.executar(scanner, null);
                     break;
                 case 3:
                     ImprimirRelatorioMulta.executar(scanner, null);

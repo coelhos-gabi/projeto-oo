@@ -1,6 +1,7 @@
 package org.example.repository;
 
 
+import org.example.dominios.Aluno;
 import org.example.dominios.Emprestimo;
 
 import java.util.ArrayList;
@@ -59,7 +60,15 @@ public class EmprestimoRepository extends AbstractListRepository<Emprestimo> {
     }
 
 
-
+    public List<Emprestimo> getEmprestimosPorAluno(Aluno aluno){
+        List<Emprestimo> emprestimosPorAluno = new ArrayList<>();
+        for (Emprestimo emprestimoCadastrado : emprestimosCadastrados) {
+            if (emprestimoCadastrado.getAluno().equals(aluno)) {
+                    emprestimosPorAluno.add(emprestimoCadastrado);
+                }
+            }
+        return emprestimosPorAluno;
+    }
 
 
 }

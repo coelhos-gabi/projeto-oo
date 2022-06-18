@@ -1,6 +1,7 @@
 package org.example.telas;
 
 import org.example.dominios.Aluno;
+import org.example.servico.ImprimirRelatorioEmprestimoPorAluno;
 import org.example.servico.ImprimirRelatorioMulta;
 
 import java.util.Scanner;
@@ -27,7 +28,8 @@ public class TelaAluno {
                     System.out.println(aluno);
                     break;
                 case 3:
-                   // StatusEmprestimo.executar(aluno);
+                    ImprimirRelatorioEmprestimoPorAluno.executar(scanner, aluno);
+                    break;
                 case 4:
                     ImprimirRelatorioMulta.executar(scanner, aluno);
                     break;

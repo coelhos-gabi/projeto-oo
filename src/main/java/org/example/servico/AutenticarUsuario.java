@@ -24,14 +24,14 @@ public class AutenticarUsuario {
                 }
             }
         }
-//        if (user instanceof Bibliotecario) {
+        if (user instanceof Bibliotecario) {
 //            bibliotecario = (Bibliotecario) user;
 //            ArrayList<Bibliotecario> bibliotecariosCadastrados = Bibliotecario.getInstance().getAlunosCadastrados();
 //            for (Aluno alunoCadastrado : alunosCadastrados) {
 //                if (alunoCadastrado.equals(aluno)) {
 //                    if (alunoCadastrado.getSenha().equals(senha)){
-//                        return true;
-//                    }
+                       return true;
+                    }
 //                }
 //            }
 //        }

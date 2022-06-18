@@ -4,24 +4,25 @@ import org.example.dominios.Aluno;
 import org.example.dominios.Emprestimo;
 import org.example.repository.EmprestimoRepository;
 import org.example.telas.ProcurarAluno;
-
-
-import java.util.List;
 import java.util.Scanner;
 
 public class ImprimirRelatorioEmprestimoPorAluno {
-    public static void executar(Scanner scanner) {
+    public static void executar(Scanner scanner, Aluno aluno) {
+        boolean alunoNaoPossuiLivro = true;
+        if(aluno == null) {
+            aluno = ProcurarAluno.executar(scanner);
+        }
 
-        Aluno aluno = ProcurarAluno.executar(scanner);
+        // Collections.sort(relatorio); //TENTAR ORGANIZAR POR DATA DE EMPRÉSTIMO (?)
+        System.out.println("Relatório de empréstimos do aluno "+aluno.getNome());
+        for (Emprestimo emprestimo : EmprestimoRepository.getInstance().getEmprestimosPorAluno(aluno)) {
+            System.out.println(emprestimo);
+            alunoNaoPossuiLivro = false;
+        }
 
-
-        List<Emprestimo> relatorioAluno = EmprestimoRepository.getInstance().getEmprestimosCadastrados();
-       // Collections.sort(relatorio); //TENTAR ORGANIZAR POR DATA DE EMPRÉSTIMO (?)
-
-            for (Emprestimo emprestimo : relatorioAluno) {
-                if(emprestimo.getAluno().equals(aluno))
-                    System.out.println(emprestimo);
-            }
+        if(alunoNaoPossuiLivro){
+            System.out.println("Aluno nao possui nenhum empréstimo");
         }
     }
+}
 

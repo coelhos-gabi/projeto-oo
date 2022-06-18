@@ -8,19 +8,9 @@ import java.util.List;
 
 public class VerificarNumeroDeLivrosEmprestadosPorAluno {
 
-    public static int executar(Aluno aluno){
-        int numeroDeLivrosEmprestados = 0;
+    public static int executar(Aluno aluno) {
 
-
-        List<Emprestimo> emprestimosCadastrados = EmprestimoRepository.getInstance().getEmprestimosCadastrados();
-        for (Emprestimo emprestimoCadastrado : emprestimosCadastrados) {
-            if(emprestimoCadastrado.getAluno().equals(aluno)){
-                numeroDeLivrosEmprestados += 1;
-            }
-
-        }
-        return numeroDeLivrosEmprestados;
+        List<Emprestimo> emprestimosPorAluno = EmprestimoRepository.getInstance().getEmprestimosPorAluno(aluno);
+        return emprestimosPorAluno.size();
     }
-
-
 }

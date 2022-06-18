@@ -1,8 +1,10 @@
 package org.example.repository;
 
+import org.example.dominios.Emprestimo;
 import org.example.dominios.Livro;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // USO DE SINGLETON
 

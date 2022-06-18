@@ -29,7 +29,7 @@ public class TelaAluno {
                 case 3:
                    // StatusEmprestimo.executar(aluno);
                 case 4:
-                    ImprimirRelatorioMulta.executar(scanner);
+                    ImprimirRelatorioMulta.executar(scanner, aluno);
                     break;
             }
         } while (option != 0);

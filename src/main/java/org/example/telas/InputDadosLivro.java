@@ -1,12 +1,13 @@
 package org.example.telas;
 
 import org.example.dominios.Livro;
+import org.example.servico.CadastrarLivro;
 
 import java.util.Scanner;
 
 public class InputDadosLivro {
 
-    public static Livro executar(Scanner scanner){
+    public static void executar(Scanner scanner){
 
         System.out.println("Insira o título do livro:");
         String titulo = scanner.next();
@@ -17,6 +18,11 @@ public class InputDadosLivro {
         System.out.println("Insira o total de copias:");
         int copias = scanner.nextInt();
 
-        return new Livro(titulo, autor, isbn, copias);
+        Livro livro = new Livro(titulo, autor, isbn, copias);
+        CadastrarLivro.cadastrar(livro);
+
+
+
+
     }
 }

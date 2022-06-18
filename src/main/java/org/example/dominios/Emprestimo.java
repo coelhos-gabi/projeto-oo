@@ -12,6 +12,7 @@ public class Emprestimo implements Comparable<Emprestimo> {
     private String id;
     private boolean foiDevolvido = false;
     private BigDecimal multa = BigDecimal.valueOf(0);
+    private long diasDeAtraso = 0;
 
     public Emprestimo(Aluno aluno, Livro livroEmprestado) {
         this.aluno = aluno;
@@ -103,5 +104,13 @@ public class Emprestimo implements Comparable<Emprestimo> {
 
     public BigDecimal getMulta() {
         return multa;
+    }
+
+    public long getDiasDeAtraso() {
+        return diasDeAtraso;
+    }
+
+    public void setDiasDeAtraso(long diasDeAtraso) {
+        this.diasDeAtraso = diasDeAtraso;
     }
 }

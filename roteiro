@@ -4,15 +4,24 @@ ROTEIRO DESENVOLVIMENTO
 - Realizar devoluçao; - FOI!!!!!!!!!!!!!!!!
 - Calular Multa; OK
 - Imprmir relatório - Colocar por aluno; OK
-- Corrigir input e validaçao de senha;
-- Cadastro de alunos;
-- Cadastro de livros;
+- Cadastro de alunos; OK (Ja estava ok, certo?)
+- Cadastro de livros; OK
+- Colocar condicionais de empréstimos;SUPER OK!!!!
+- Corrigir input e validaçao de senha; OK!
+    - Adicionar mais uma cópia de livro ja cadastrado;
+    - Bibliotecario repositorio
+- TRATAMENTO DE ERROS!
+    - input dados livro
+
+    - verificar set possui multa dentro do aluno
 
 
 
 Se sobrar tempo:
     - Criar empréstimo de outros materiais;
     - Método geral nos repositorios < T extends Abstact Repository>;
+    - Tela devoluçao, colocar em loop para devolver vários livros de uma vez
+    -Imprimir relatório de todos os livros da biblioteca
 
 
 

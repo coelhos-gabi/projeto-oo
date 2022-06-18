@@ -2,10 +2,11 @@ package org.example.dominios;
 
 import java.util.Objects;
 
-public class Aluno extends User implements IUsuarioAutenticacao {
+public class Aluno extends User{
 
     private final TipoAluno tipoAluno;
     private boolean possuiMulta = false;
+    private String senha;
 
     public Aluno(String nome, String id, TipoAluno tipoAluno, String senha) {
         super(nome, id, senha);
@@ -25,9 +26,9 @@ public class Aluno extends User implements IUsuarioAutenticacao {
         return this.possuiMulta ? "sim" : "não";
     }
 
-    public void setPossuiMulta() {
-        this.possuiMulta = !this.possuiMulta;
-    }
+//    public void setPossuiMulta() {
+//        this.possuiMulta = !this.possuiMulta;
+//    }
 
     @Override
     public String toString() {
@@ -48,6 +49,11 @@ public class Aluno extends User implements IUsuarioAutenticacao {
     @Override
     public int hashCode() {
         return Objects.hash(this.getId());
+    }
+
+    @Override
+    public String getSenha() {
+        return senha;
     }
 }
 

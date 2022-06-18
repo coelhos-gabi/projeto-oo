@@ -24,7 +24,11 @@ public class User implements IUsuarioAutenticacao {
         this.senha = senha;
     }
 
-    public boolean autenticar(String id, String senha){ //SOMENTE PARA TESTAR, VERIFICAR MÉTODO
-        return true;
+//    public boolean autenticar(String id, String senha){ //SOMENTE PARA TESTAR, VERIFICAR MÉTODO
+//        return this.senha.equals(senha);
+//    }
+
+    public String getSenha() {
+        return senha;
     }
 }

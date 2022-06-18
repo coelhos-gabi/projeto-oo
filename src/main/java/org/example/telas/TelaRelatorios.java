@@ -1,5 +1,6 @@
 package org.example.telas;
 
+import org.example.dominios.Aluno;
 import org.example.servico.ImprimirRelatorioEmprestimoPorAluno;
 import org.example.servico.ImprimirRelatorioGeralEmprestimo;
 import org.example.servico.ImprimirRelatorioMulta;
@@ -27,7 +28,7 @@ public class TelaRelatorios {
                     ImprimirRelatorioEmprestimoPorAluno.executar(scanner);
                     break;
                 case 3:
-                    ImprimirRelatorioMulta.executar(scanner);
+                    ImprimirRelatorioMulta.executar(scanner, null);
                     break;
             }
         } while (option != 0);

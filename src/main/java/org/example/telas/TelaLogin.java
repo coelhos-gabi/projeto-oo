@@ -4,6 +4,7 @@ import org.example.dominios.Aluno;
 import org.example.dominios.Bibliotecario;
 import org.example.dominios.User;
 import org.example.repository.UserRepository;
+import org.example.servico.AutenticarUsuario;
 
 import java.util.Scanner;
 
@@ -18,16 +19,16 @@ public class TelaLogin {
         if (user != null) {
             if (user instanceof Aluno) {
                 Aluno aluno = (Aluno) user;
-                if (!(aluno.autenticar(id, senha))) {
-                    System.out.println("Dados inválidos");
+                if (!AutenticarUsuario.executar(senha, aluno)) {
+                    System.out.println("Senha inválida");
                     return;
                 }
                 TelaAluno.executar((Aluno) user, scanner);
             }
             if (user instanceof Bibliotecario) {
                 Bibliotecario bibliotecario = (Bibliotecario) user;
-                if (!(bibliotecario.autenticar(id, senha))) {
-                    System.out.println("Dados inválidos");
+                if (!AutenticarUsuario.executar(senha, bibliotecario)) { //PASSAR AUTENTICAÇAO DO BIBLIOTECARIO
+                    System.out.println("Senha inválida");
                     return;
                 }
                 TelaBibliotecario.executar(bibliotecario, scanner);

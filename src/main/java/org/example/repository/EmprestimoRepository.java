@@ -1,5 +1,6 @@
 package org.example.repository;
 
+
 import org.example.dominios.Emprestimo;
 
 import java.util.ArrayList;
@@ -56,6 +57,9 @@ public class EmprestimoRepository extends AbstractListRepository<Emprestimo> {
     public int compare(Emprestimo emprestimo1, Emprestimo emprestimo2) {
         return 0;
     }
+
+
+
 
 
 }

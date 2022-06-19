@@ -8,15 +8,14 @@ import org.example.repository.EmprestimoRepository;
 
 
 
-public class VerificarSeAlunoPossuiLivro implements IRegraEmprestimo {
+public class VerificarSeRecebeAlunoPossuiMulta implements IRegraEmprestimo {
 
     public void executar(Aluno aluno, Livro livro) {
 
         for (Emprestimo emprestimoPorAluno : EmprestimoRepository.getInstance().getEmprestimosPorAluno(aluno)) {
-            if(emprestimoPorAluno.getLivro().equals(livro) && (emprestimoPorAluno.isFoiDevolvido().equals("Não"))){
-                throw new VerificacaoException("Aluno já possui o livro "+livro.getTitulo());
+            if(VerificarExistenciaDeMulta.verificar(emprestimoPorAluno)){
+                throw new VerificacaoException("Aluno possui pendências com a biblioteca");
             }
         }
     }
-
 }

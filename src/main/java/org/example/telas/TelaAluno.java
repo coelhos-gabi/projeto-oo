@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class TelaAluno {
     public static void executar(Aluno aluno, Scanner scanner) {
-        int option;
+        int option = 99;
         do {
             System.out.println("-------------------------------------");
             System.out.printf("            Bem-vindo %s %n", aluno.getNome());
@@ -19,20 +19,28 @@ public class TelaAluno {
             System.out.println("   4 - Imprimir relatório de pendencias");
             System.out.println("   0 - Sair");
             System.out.println("-------------------------------------");
-            option = scanner.nextInt();
-            switch (option) {
-                case 1:
-                    ProcurarLivro.executar(scanner);
-                    break;
-                case 2:
-                    System.out.println(aluno);
-                    break;
-                case 3:
-                    ImprimirRelatorioEmprestimoPorAluno.executar(scanner, aluno);
-                    break;
-                case 4:
-                    ImprimirRelatorioMulta.executar(scanner, aluno);
-                    break;
+
+            try {
+                String stringOption = scanner.next();
+                option = Integer.parseInt(stringOption);
+
+
+                switch (option) {
+                    case 1:
+                        ProcurarLivro.executar(scanner);
+                        break;
+                    case 2:
+                        System.out.println(aluno);
+                        break;
+                    case 3:
+                        ImprimirRelatorioEmprestimoPorAluno.executar(scanner, aluno);
+                        break;
+                    case 4:
+                        ImprimirRelatorioMulta.executar(scanner, aluno);
+                        break;
+                }
+            }catch (Exception exception) {
+                System.out.println("Entrada inválida, tente novamente");
             }
         } while (option != 0);
     }

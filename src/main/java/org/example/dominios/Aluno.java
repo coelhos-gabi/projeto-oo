@@ -26,9 +26,9 @@ public class Aluno extends User{
         return this.possuiMulta ? "sim" : "não";
     }
 
-//    public void setPossuiMulta() {
-//        this.possuiMulta = !this.possuiMulta;
-//    }
+    public void setPossuiMulta() {
+        this.possuiMulta = !this.possuiMulta;
+    }
 
     @Override
     public String toString() {

@@ -19,6 +19,7 @@ public class TelaEmprestimo {
         Livro livro = null;
         Aluno aluno = null;
 
+
         System.out.println("Insira a matricula:");
         String idAluno = scanner.next();
 

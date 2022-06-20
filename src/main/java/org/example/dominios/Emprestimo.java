@@ -33,18 +33,15 @@ public class Emprestimo implements Comparable<Emprestimo> {
     }
 
     public LocalDate getDataDevolucaoReal() {
-        if(isFoiDevolvido().equals("Sim")){
-            setDataDevolucaoReal(dataDevolucaoReal.plusDays(10));
-            return dataDevolucaoReal.plusDays(10);
-        } //SOMENTE PARA TESTAR A MULTA
-        else{
-            return null;
+            return dataDevolucaoReal;
         }
-    }
 
-    public void setDataDevolucaoReal(LocalDate dataDevolucaoReal) {
-        this.dataDevolucaoReal = dataDevolucaoReal;
-    }
+
+
+    public void setDataDevolucaoReal() {
+            this.dataDevolucaoReal = LocalDate.now().plusDays(10);  //SOMENTE PARA CALCULAR MULTA
+        }
+
 
     public LocalDate getDataPrevista() {
         return this.dataEmprestimo.plusDays(7);
@@ -82,7 +79,7 @@ public class Emprestimo implements Comparable<Emprestimo> {
     }
 
     private String stringDataDevolucao(){
-        return foiDevolvido ? LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+        return foiDevolvido ? getDataDevolucaoReal().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 : "Aguardando devolução ";
 
     }

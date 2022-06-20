@@ -16,23 +16,19 @@ public class TelaLogin {
         User user = UserRepository.getInstance().read(id);
         System.out.println("Insira sua senha: ");
         String senha = scanner.next();
+
         if (user != null) {
+
+            if (!AutenticarUsuario.executar(senha, user)) {
+                System.out.println("Senha inválida");
+                return;
+            }
             if (user instanceof Aluno) {
-                Aluno aluno = (Aluno) user;
-                if (!AutenticarUsuario.executar(senha, aluno)) {
-                    System.out.println("Senha inválida");
-                    return;
-                }
-                TelaAluno.executar((Aluno) user, scanner);
+                TelaAluno.executar((Aluno)user, scanner);
+            }else if(user instanceof Bibliotecario){
+                TelaBibliotecario.executar((Bibliotecario)user, scanner);
             }
-            if (user instanceof Bibliotecario) {
-                Bibliotecario bibliotecario = (Bibliotecario) user;
-                if (!AutenticarUsuario.executar(senha, bibliotecario)) { //PASSAR AUTENTICAÇAO DO BIBLIOTECARIO
-                    System.out.println("Senha inválida");
-                    return;
-                }
-                TelaBibliotecario.executar(bibliotecario, scanner);
-            }
+
         } else {
             System.out.println("Usuário não encontrado");
         }

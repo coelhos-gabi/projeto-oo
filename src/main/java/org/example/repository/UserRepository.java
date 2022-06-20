@@ -1,5 +1,6 @@
 package org.example.repository;
 
+import org.example.dominios.Aluno;
 import org.example.dominios.User;
 
 import java.util.ArrayList;
@@ -50,4 +51,8 @@ public class UserRepository extends AbstractListRepository<User> {
         return usuario1.getId().compareTo(usuario2.getId());
     }
 
+
+    public ArrayList<User> getUsuariosCadastrados() {
+        return usuariosCadastrados;
+    }
 }

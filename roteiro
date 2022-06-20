@@ -8,16 +8,15 @@ ROTEIRO DESENVOLVIMENTO
 - Cadastro de livros; OK
 - Colocar condicionais de empréstimos;SUPER OK!!!!
 - Corrigir input e validaçao de senha; OK!
-    - Adicionar mais uma cópia de livro ja cadastrado;
-    - Bibliotecario repositorio
+- Bibliotecario repositorio - ok
+- input dados livro ok
+- verificar set possui multa dentro do aluno OK
+
 - TRATAMENTO DE ERROS!
-    - input dados livro
-
-    - verificar set possui multa dentro do aluno
-
 
 
 Se sobrar tempo:
+    - Adicionar mais uma cópia de livro ja cadastrado;
     - Criar empréstimo de outros materiais;
     - Método geral nos repositorios < T extends Abstact Repository>;
     - Tela devoluçao, colocar em loop para devolver vários livros de uma vez

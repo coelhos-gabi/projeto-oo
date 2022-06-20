@@ -2,20 +2,16 @@ package org.example.servico;
 
 import org.example.dominios.Aluno;
 import org.example.dominios.Livro;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
 public class VerificarSeAlunoPodeEmprestar {
-    private static List<IRegraEmprestimo> verificacoes = Arrays.asList(
-            new VerificarSeRecebeAlunoPossuiMulta(),
-            new VerificarDisponibilidadeDoLivro(),
-            new VerificarSeAlunoPossuiLivro(),
-            new VerificarSeAlunoExcedeuLimiteEmprestimoRecebe());
+
+    private static List<IRegraEmprestimo> verificacoes = new ArrayList<>();
+
     public VerificarSeAlunoPodeEmprestar() {
-        this.verificacoes = verificacoes;
+        ListaDeVerificaçoes.executar();
     }
     public static boolean executar(Aluno aluno, Livro livro) {
         try {
@@ -27,4 +23,7 @@ public class VerificarSeAlunoPodeEmprestar {
         return true;
     }
 
+    public static void setVerificacoes(IRegraEmprestimo verificacao) {
+        verificacoes.add(verificacao);
+    }
 }

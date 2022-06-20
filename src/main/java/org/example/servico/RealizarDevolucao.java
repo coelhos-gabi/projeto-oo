@@ -19,13 +19,14 @@ public class RealizarDevolucao {
                         System.out.println("Livro já foi devolvido");
                     } else {
                         emprestimo.setFoiDevolvido();
-                        emprestimo.setDataDevolucaoReal(LocalDate.now());
+                        emprestimo.setDataDevolucaoReal();
                         livro.setTotalCopias(1);
                         VerificarExistenciaDeMulta verificarExistenciaDeMulta = new VerificarExistenciaDeMulta();
                         if(verificarExistenciaDeMulta.verificar(emprestimo)){
                             CalcularMulta calcularMulta = new CalcularMulta();
                             BigDecimal multa = calcularMulta.calcular(emprestimo);
                             emprestimo.setMulta(multa);
+                            aluno.setPossuiMulta();
                             emprestimo.setDiasDeAtraso(CalcularMulta.getDiasDeAtraso(emprestimo));
                         }
                     }

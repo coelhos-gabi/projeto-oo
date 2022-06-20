@@ -8,10 +8,10 @@ import org.example.repository.EmprestimoRepository;
 
 
 
-public class VerificarSeRecebeAlunoPossuiMulta implements IRegraEmprestimo {
+public class VerificarSeAlunoPossuiMulta implements IRegraEmprestimo {
+
 
     public void executar(Aluno aluno, Livro livro) {
-
         for (Emprestimo emprestimoPorAluno : EmprestimoRepository.getInstance().getEmprestimosPorAluno(aluno)) {
             if(VerificarExistenciaDeMulta.verificar(emprestimoPorAluno)){
                 throw new VerificacaoException("Aluno possui pendências com a biblioteca");

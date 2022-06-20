@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class TelaBibliotecario {
     public static void executar(Bibliotecario bibliotecario, Scanner scanner) {
-        int option;
+        int option = 99;
         do {
             System.out.println("-------------------------------------");
             System.out.printf("           Bem-vindo %s %n", bibliotecario.getNome());
@@ -21,33 +21,38 @@ public class TelaBibliotecario {
             System.out.println("   7 - Imprimir relatórios");
             System.out.println("   0 - Sair");
             System.out.println("-------------------------------------");
-            option = scanner.nextInt();
-            switch (option) {
-                case 1:
-                    InputDadosLivro.executar(scanner);
-                    break;
-                case 2:
-                    InputDadosAluno.executar(scanner);
-                    break;
-                case 3:
-                    TelaEmprestimo.executar(scanner);
-                    break;
-                case 4:
-                    TelaDevolucao.executar(scanner);
-                    break;
-                case 5:
-                    ProcurarLivro.executar(scanner);
-                    break;
-                case 6:
-                    Aluno aluno = ProcurarAluno.executar(scanner);
-                    if(aluno == null){
+            try {
+                String stringOption = scanner.next();
+                option = Integer.parseInt(stringOption);
+                switch (option) {
+                    case 1:
+                        InputDadosLivro.executar(scanner);
                         break;
-                    }
-                    System.out.println(aluno);
-                    break;
-                case 7:
-                    TelaRelatorios.executar(scanner);
-                    break;
+                    case 2:
+                        InputDadosAluno.executar(scanner);
+                        break;
+                    case 3:
+                        TelaEmprestimo.executar(scanner);
+                        break;
+                    case 4:
+                        TelaDevolucao.executar(scanner);
+                        break;
+                    case 5:
+                        ProcurarLivro.executar(scanner);
+                        break;
+                    case 6:
+                        Aluno aluno = ProcurarAluno.executar(scanner);
+                        if (aluno == null) {
+                            break;
+                        }
+                        System.out.println(aluno);
+                        break;
+                    case 7:
+                        TelaRelatorios.executar(scanner);
+                        break;
+                }
+            } catch (Exception exception){
+                System.out.println("Entrada inválida, tente novamente");
             }
         } while (option != 0);
     }

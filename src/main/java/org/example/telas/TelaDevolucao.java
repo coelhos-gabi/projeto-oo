@@ -12,14 +12,21 @@ public class TelaDevolucao {
 
     public static void executar(Scanner scanner) {
 
-        System.out.println("Insira a matricula do aluno:");
-        String idAluno = scanner.next();
-        Aluno aluno = AlunosRepository.getInstance().read(idAluno);
-        System.out.println("Insira o isbn do livro");
-        String idLivro = scanner.next();
-        Livro livro = LivroRepository.getInstance().procurarLivroISBN(idLivro);
-        RealizarDevolucao devolucao = new RealizarDevolucao();
-        devolucao.devolver(livro, aluno);
-
+        try {
+            Aluno aluno = ProcurarAluno.executar(scanner);
+            if(aluno == null){
+                throw new Exception();
+            }
+            System.out.println("Insira o ISBN do livro");
+            String idLivro = scanner.next();
+            Livro livro = LivroRepository.getInstance().procurarLivroISBN(idLivro);
+            if(livro == null){
+                throw new Exception();
+            }
+            RealizarDevolucao devolucao = new RealizarDevolucao();
+            devolucao.devolver(livro, aluno);
+        }catch (Exception exception){
+            System.out.println("Algo deu errado");
+        }
     }
 }
